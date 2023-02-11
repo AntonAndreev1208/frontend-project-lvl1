@@ -4,6 +4,8 @@ import readlineSync from 'readline-sync';
 const name = readlineSync.question('Welcome to the Brain Games! \nMay I have your name? ');
 console.log(`Hello, ${name}!`);
 
+console.log('What is the result of the expression?');
+
 const operations = ['+', '-', '*'];
 const randomExpression = () => {
   const num1 = Math.floor(Math.random() * 50);
