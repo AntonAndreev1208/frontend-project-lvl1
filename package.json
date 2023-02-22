@@ -10,7 +10,7 @@
     "brain-prime":"bin/brain-prime.js"
 
   },
-  "description": "[![Actions Status](https://github.com/AntonAndreev1208/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/AntonAndreev1208/frontend-project-lvl1/actions)",
+  "description": "Brain games - 5 games for the development of thinking",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
