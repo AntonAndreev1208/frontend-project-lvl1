@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import askName from '../welcome.js';
+import { askName, congratulatePlayer, promptWrongAnswer } from '../welcome.js';
 
 const getRandomNumber = (min = 1, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -24,12 +24,11 @@ const play = () => {
     if (answer === correctAnswer.toString()) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
+      promptWrongAnswer(answer, correctAnswer, name);
       return;
     }
   }
-  console.log(`Congratulations, ${name}!`);
+  congratulatePlayer(name);
 };
 
 export default play;

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
 const askName = () => {
@@ -6,4 +7,14 @@ const askName = () => {
   console.log(`Hello, ${name}!`);
   return name;
 };
-export default askName;
+
+const congratulatePlayer = (name) => {
+  console.log(`Congratulations, ${name}!`);
+};
+
+const promptWrongAnswer = (answer, correctAnswer, name) => {
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log(`Let's try again, ${name}!`);
+};
+
+export { askName, congratulatePlayer, promptWrongAnswer };
