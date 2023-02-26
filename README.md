@@ -24,7 +24,7 @@ brain-calc
 
 Вам будет предложено решить небольшую математическую задачу. Так же, как и в прошлой игре, три правильных ответа будут означать выигрыш. 
 
-https://asciinema.org/a/Se8LeQha626ctdS1pRSiulDeR 
+[![asciicast](https://asciinema.org/a/Se8LeQha626ctdS1pRSiulDeR.svg)](https://asciinema.org/a/Se8LeQha626ctdS1pRSiulDeR)
 
 3. Запуск игры "Наибольший общий делитель".
 
@@ -48,5 +48,5 @@ brain-prime
 
 Вам будет предложено случайное число. Вам нужно определить является ли оно простым. 
 
-https://asciinema.org/a/OaBYj2glo4Yet5HaVDMSnxvZS
+[![asciicast](https://asciinema.org/a/OaBYj2glo4Yet5HaVDMSnxvZS.svg)](https://asciinema.org/a/OaBYj2glo4Yet5HaVDMSnxvZS)
   

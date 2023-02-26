@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import askName from '../src/welcome.js';
-
-console.log('What is the result of the expression?');
+import { askName, congratulatePlayer, promptWrongAnswer } from '../welcome.js';
 
 const operations = ['+', '-', '*'];
+
 const randomExpression = () => {
   const num1 = Math.floor(Math.random() * 50);
   const num2 = Math.floor(Math.random() * 50);
@@ -27,20 +26,21 @@ const correctAnswer = (expression) => {
 };
 
 const playGame = (roundsCount) => {
+  const name = askName();
+  console.log('What is the result of the expression?');
   for (let i = 1; i <= roundsCount; i += 1) {
     const expression = randomExpression();
     console.log(`Question: ${expression}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    const correct = correctAnswer(expression);
-    if (userAnswer === String(correct)) {
+    const correct = correctAnswer(expression).toString();
+    if (userAnswer === correct) {
       console.log('Correct!');
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correct}'.`);
-      console.log(`Let's try again, ${name}!`);
+      promptWrongAnswer(userAnswer, correct, name);
       return;
     }
   }
-  console.log(`Congratulations, ${name}!`);
+  congratulatePlayer(name);
 };
 
-playGame(3);
+export default playGame;
