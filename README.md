@@ -16,7 +16,7 @@ brain-even
 
 Вам будут предложены несколько чисел. Ваша задача - определить их четность.  После трех правильных ответов, игра считается выигранной. В случае неудачи, вам будет предложено начать заново. 
 
-https://asciinema.org/a/OR3ddfAZEjy8Ll2AUa2d50zM4
+[![asciicast](https://asciinema.org/a/ymLbkEPnE6YeaA1xKPjjgfgU3.svg)](https://asciinema.org/a/ymLbkEPnE6YeaA1xKPjjgfgU3)
 
 2. Запуск игры "Калькулятор".
 
@@ -24,7 +24,7 @@ brain-calc
 
 Вам будет предложено решить небольшую математическую задачу. Так же, как и в прошлой игре, три правильных ответа будут означать выигрыш. 
 
-[![asciicast](https://asciinema.org/a/Se8LeQha626ctdS1pRSiulDeR.svg)](https://asciinema.org/a/Se8LeQha626ctdS1pRSiulDeR)
+[![asciicast](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk.svg)](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk)
 
 3. Запуск игры "Наибольший общий делитель".
 
@@ -32,13 +32,13 @@ brain-gcd
 
 Вам будут предложены два случайных числа. Ваша задача - определить наибольший общий делитель. 
 
-https://asciinema.org/a/LERVgkjzwT1pLekGL9RThYBUK
+[![asciicast](https://asciinema.org/a/SP97hAkptl1mkgnR6P7nlfN1m.svg)](https://asciinema.org/a/SP97hAkptl1mkgnR6P7nlfN1m)
 
 4. Запуск игры "Арифметическая прогрессия".
 
 brain-progression
 
-Вам будет предложен случайный ряд чисел, образующих арифметическую прогрессию. Одно из чисел будет скрыто, вместо него две точки. Ваша задача - определить это число.
+[![asciicast](https://asciinema.org/a/b5fP09agw67fumnYb8NW6AXNV.svg)](https://asciinema.org/a/b5fP09agw67fumnYb8NW6AXNV)
 
 https://asciinema.org/a/OUWrE2zUAVTM7u1ABXf2QRiqs
 
@@ -48,5 +48,4 @@ brain-prime
 
 Вам будет предложено случайное число. Вам нужно определить является ли оно простым. 
 
-[![asciicast](https://asciinema.org/a/OaBYj2glo4Yet5HaVDMSnxvZS.svg)](https://asciinema.org/a/OaBYj2glo4Yet5HaVDMSnxvZS)
-  
+[![asciicast](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk.svg)](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk)
