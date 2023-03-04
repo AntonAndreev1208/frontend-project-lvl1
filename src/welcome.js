@@ -17,4 +17,15 @@ const promptWrongAnswer = (answer, correctAnswer, name) => {
   console.log(`Let's try again, ${name}!`);
 };
 
-export { askName, congratulatePlayer, promptWrongAnswer };
+const askQuestion = (question, correctAnswer, name) => {
+  console.log(`Question: ${question}`);
+  const userAnswer = readlineSync.question('Your answer: ');
+  const correct = correctAnswer.toString();
+  if (userAnswer === correct) {
+    console.log('Correct!');
+    return true;
+  }
+  promptWrongAnswer(userAnswer, correct, name);
+  return false;
+};
+export { askName, congratulatePlayer, promptWrongAnswer, askQuestion };

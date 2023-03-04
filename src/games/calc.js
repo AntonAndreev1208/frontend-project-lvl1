@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { askName, congratulatePlayer, promptWrongAnswer } from '../welcome.js';
+import { askName, congratulatePlayer, askQuestion } from '../welcome.js';
 
 const operations = ['+', '-', '*'];
 
@@ -25,18 +24,13 @@ const correctAnswer = (expression) => {
   }
 };
 
-const playGame = (roundsCount) => {
+const playGame = () => {
   const name = askName();
+  const roundsCount = 3;
   console.log('What is the result of the expression?');
   for (let i = 1; i <= roundsCount; i += 1) {
     const expression = randomExpression();
-    console.log(`Question: ${expression}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    const correct = correctAnswer(expression).toString();
-    if (userAnswer === correct) {
-      console.log('Correct!');
-    } else {
-      promptWrongAnswer(userAnswer, correct, name);
+    if (!askQuestion(expression, correctAnswer(expression), name)) {
       return;
     }
   }

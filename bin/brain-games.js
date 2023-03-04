@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import myFunc from '../src/cli.js';
+import sayName from '../src/cli.js';
 
-myFunc();
+sayName();
