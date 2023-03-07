@@ -28,4 +28,18 @@ const askQuestion = (question, correctAnswer, name) => {
   promptWrongAnswer(userAnswer, correct, name);
   return false;
 };
-export { askName, congratulatePlayer, promptWrongAnswer, askQuestion };
+
+const playGame = (gameMessage, randomExpression, correctAnswer) => {
+  const name = askName();
+  const roundsCount = 3;
+  console.log(gameMessage);
+  for (let i = 1; i <= roundsCount; i += 1) {
+    const expression = randomExpression();
+    if (!askQuestion(expression, correctAnswer(expression), name)) {
+      return;
+    }
+  }
+  congratulatePlayer(name);
+};
+
+export default playGame;

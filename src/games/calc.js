@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { askName, congratulatePlayer, askQuestion } from '../welcome.js';
+import playGame from '../welcome.js';
 
 const operations = ['+', '-', '*'];
 
@@ -24,17 +24,10 @@ const correctAnswer = (expression) => {
   }
 };
 
-const playGame = () => {
-  const name = askName();
-  const roundsCount = 3;
-  console.log('What is the result of the expression?');
-  for (let i = 1; i <= roundsCount; i += 1) {
-    const expression = randomExpression();
-    if (!askQuestion(expression, correctAnswer(expression), name)) {
-      return;
-    }
-  }
-  congratulatePlayer(name);
-};
+const gameMessage = 'What is the result of the expression?';
 
-export default playGame;
+function startGame() {
+  playGame(gameMessage, randomExpression, correctAnswer);
+}
+
+export default startGame;
