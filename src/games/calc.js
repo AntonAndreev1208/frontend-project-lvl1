@@ -33,7 +33,7 @@ const generateData = () => {
 };
 
 function startGame() {
-  playGame(gameMessage, generateData, (answer) => answer);
+  playGame(gameMessage, generateData, Number);
 }
 
 export default startGame;
