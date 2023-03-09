@@ -29,13 +29,13 @@ const askQuestion = (question, correctAnswer, name) => {
   return false;
 };
 
-const playGame = (gameMessage, randomExpression, correctAnswer) => {
+const playGame = (gameMessage, generateData, getCorrectAnswer) => {
   const name = askName();
   const roundsCount = 3;
   console.log(gameMessage);
   for (let i = 1; i <= roundsCount; i += 1) {
-    const expression = randomExpression();
-    if (!askQuestion(expression, correctAnswer(expression), name)) {
+    const [question, answer] = generateData();
+    if (!askQuestion(question, getCorrectAnswer(answer), name)) {
       return;
     }
   }

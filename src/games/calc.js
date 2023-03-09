@@ -26,8 +26,14 @@ const correctAnswer = (expression) => {
 
 const gameMessage = 'What is the result of the expression?';
 
+const generateData = () => {
+  const expression = randomExpression();
+  const answer = correctAnswer(expression);
+  return [expression, answer];
+};
+
 function startGame() {
-  playGame(gameMessage, randomExpression, correctAnswer);
+  playGame(gameMessage, generateData, (answer) => answer);
 }
 
 export default startGame;

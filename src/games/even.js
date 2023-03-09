@@ -1,31 +1,17 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { askName, congratulatePlayer, promptWrongAnswer } from '../welcome.js';
+import playGame from '../welcome.js';
 
-const isEven = (num) => num % 2 === 0;
+const correctAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
-const generateQuestionAndAnswer = () => {
+const randomExpression = () => {
   const question = Math.floor(Math.random() * 100);
-  const answer = isEven(question) ? 'yes' : 'no';
-  return [question, answer];
+  return [question];
 };
 
-const playEvenGame = () => {
-  const name = askName();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let correctAnswersCount = 0;
-  while (correctAnswersCount < 3) {
-    const [question, correctAnswer] = generateQuestionAndAnswer();
-    console.log(`Question: ${question}`);
-    const playerAnswer = readlineSync.question('Your answer: ');
-    if (playerAnswer !== correctAnswer) {
-      promptWrongAnswer(playerAnswer, correctAnswer, name);
-      return;
-    }
-    console.log('Correct!');
-    correctAnswersCount += 1;
-  }
-  congratulatePlayer(name);
-};
+const gameMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function playEvenGame() {
+  playGame(gameMessage, randomExpression, correctAnswer);
+}
 
 export default playEvenGame;
