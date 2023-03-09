@@ -8,15 +8,6 @@ const askName = () => {
   return name;
 };
 
-const congratulatePlayer = (name) => {
-  console.log(`Congratulations, ${name}!`);
-};
-
-const promptWrongAnswer = (answer, correctAnswer, name) => {
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log(`Let's try again, ${name}!`);
-};
-
 const askQuestion = (question, correctAnswer, name) => {
   console.log(`Question: ${question}`);
   const userAnswer = readlineSync.question('Your answer: ');
@@ -25,7 +16,8 @@ const askQuestion = (question, correctAnswer, name) => {
     console.log('Correct!');
     return true;
   }
-  promptWrongAnswer(userAnswer, correct, name);
+  console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log(`Let's try again, ${name}!`);
   return false;
 };
 
@@ -39,7 +31,7 @@ const playGame = (gameMessage, generateData, getCorrectAnswer) => {
       return;
     }
   }
-  congratulatePlayer(name);
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default playGame;
