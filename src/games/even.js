@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import playGame from '../welcome.js';
+import playGame from '../index.js';
 
 const correctAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
 
@@ -10,8 +10,14 @@ const randomExpression = () => {
 
 const gameMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const generateData = () => {
+  const expression = randomExpression();
+  const answer = correctAnswer(expression);
+  return [expression, answer];
+};
+
 function playEvenGame() {
-  playGame(gameMessage, randomExpression, correctAnswer);
+  playGame(gameMessage, generateData, (answer) => answer);
 }
 
 export default playEvenGame;
