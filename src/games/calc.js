@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import playGame from '../welcome.js';
+import playGame from '../index.js';
 
 const operations = ['+', '-', '*'];
 
