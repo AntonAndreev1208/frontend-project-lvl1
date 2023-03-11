@@ -21,13 +21,13 @@ const askQuestion = (question, correctAnswer, name) => {
   return false;
 };
 
-const playGame = (gameMessage, generateData, getCorrectAnswer) => {
+const playGame = (gameMessage, generateData) => {
   const name = askName();
   const roundsCount = 3;
   console.log(gameMessage);
   for (let i = 1; i <= roundsCount; i += 1) {
     const [question, answer] = generateData();
-    if (!askQuestion(question, getCorrectAnswer(answer), name)) {
+    if (!askQuestion(question, answer, name)) {
       return;
     }
   }

@@ -1,38 +1,31 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { askName, congratulatePlayer, promptWrongAnswer } from '../welcome.js';
+import playGame from '../index.js';
 
-const runGame = () => {
-  const name = askName();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  console.log("Let's start the game!");
-  let correctAnswerCount = 0;
-  while (correctAnswerCount < 3) {
-    const number = Math.floor(Math.random() * 100) + 1;
-    console.log(`Question: ${number}`);
-    let isPrime = true;
-    if (number === 1) {
-      isPrime = false;
-    } else {
-      for (let i = 2; i <= number / 2; i += 1) {
-        if (number % i === 0) {
-          isPrime = false;
-          break;
-        }
-      }
-    }
-    const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = isPrime ? 'yes' : 'no';
-    if (answer === correctAnswer) {
-      console.log('Correct!');
-      correctAnswerCount += 1;
-    } else {
-      promptWrongAnswer(answer, correctAnswer, name);
-      break;
-    }
-  }
-  if (correctAnswerCount === 3) {
-    congratulatePlayer(name);
-  }
+const randomExpression = () => {
+  const question = Math.floor(Math.random() * 100) + 1;
+  return [question];
 };
+
+const correctAnswer = (num) => {
+  if (num < 2) return 'no';
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
+    if (num % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
+};
+
+const gameMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const generateData = () => {
+  const expression = randomExpression();
+  const answer = correctAnswer(expression);
+  return [expression, answer];
+};
+
+function runGame() {
+  playGame(gameMessage, generateData, (answer) => answer);
+}
+
 export default runGame;

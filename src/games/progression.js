@@ -1,36 +1,36 @@
 #!/usr/bin/env node
-import readlineSync from 'readline-sync';
-import { askName, congratulatePlayer, promptWrongAnswer } from '../welcome.js';
+import playGame from '../index.js';
 
-const getProgression = (length) => {
-  const start = Math.floor(Math.random() * 100);
-  const step = Math.floor(Math.random() * 10);
+const randomExpression = (length) => {
   const progression = [];
+  const start = Math.floor(Math.random() * 50);
+  const step = Math.floor(Math.random() * 10) + 1;
+
   for (let i = 0; i < length; i += 1) {
     progression.push(start + step * i);
   }
+
   return progression;
 };
 
-const playProgressionGame = () => {
-  const userName = askName();
-  console.log('What number is missing in the progression?');
-  const rounds = 3;
-  for (let i = 0; i < rounds; i += 1) {
-    const progression = getProgression(10);
-    const hiddenElementIndex = Math.floor(Math.random() * progression.length);
-    const correctAnswer = progression[hiddenElementIndex];
-    progression[hiddenElementIndex] = '..';
-    console.log(`Question: ${progression.join(' ')}`);
-    const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === String(correctAnswer)) {
-      console.log('Correct!');
-    } else {
-      promptWrongAnswer(userAnswer, correctAnswer, userName);
-      return;
-    }
-  }
-  congratulatePlayer(userName);
+const correctAnswer = (progression) => {
+  const newProgression = [...progression];
+  const index = Math.floor(Math.random() * newProgression.length);
+  const hiddenElement = newProgression[index];
+  newProgression[index] = '..';
+  return [newProgression.join(' '), hiddenElement];
 };
 
-export default playProgressionGame;
+const gameMessage = 'What number is missing in the progression?';
+
+const generateData = () => {
+  const progression = randomExpression(10);
+  const [question, answer] = correctAnswer(progression);
+  return [question, String(answer)];
+};
+
+function startGame() {
+  playGame(gameMessage, generateData, (answer) => answer);
+}
+
+export default startGame;
