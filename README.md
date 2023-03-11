@@ -48,4 +48,4 @@ brain-prime
 
 Вам будет предложено случайное число. Вам нужно определить является ли оно простым. 
 
-[![asciicast](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk.svg)](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk)
+[![asciicast](https://asciinema.org/a/f1DeXdqk1yUB31zCbGfXeMrY4.svg)](https://asciinema.org/a/f1DeXdqk1yUB31zCbGfXeMrY4)
