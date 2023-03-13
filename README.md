@@ -38,9 +38,10 @@ brain-gcd
 
 brain-progression
 
+Вам предложен случайный ряд из десяти чисел с одним пропущеным значением. Ваша задача - выявить закономерность формирования численного ряда и вычеслить пропущенное число.
+
 [![asciicast](https://asciinema.org/a/b5fP09agw67fumnYb8NW6AXNV.svg)](https://asciinema.org/a/b5fP09agw67fumnYb8NW6AXNV)
 
-https://asciinema.org/a/OUWrE2zUAVTM7u1ABXf2QRiqs
 
 5. Запуск игры "Простое ли число?".
 
