@@ -1,5 +1,5 @@
 # Frontend-project-lvl
-# "Игры разума":
+# "Игры разума"
 ***
 [![Actions Status](https://github.com/AntonAndreev1208/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/AntonAndreev1208/frontend-project-lvl1/actions)
 
