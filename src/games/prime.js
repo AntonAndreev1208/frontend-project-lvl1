@@ -2,9 +2,8 @@
 import playGame from '../index.js';
 import { getRandomNumber } from '../getRandomNumber.js';
 
-const gameMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const minRange = 0;
-const maxRange = 100;
+const minSeries = 0;
+const maxSeries = 100;
 
 const getGoodAnswer = (number) => {
   const limit = Math.sqrt(number);
@@ -20,11 +19,13 @@ const getGoodAnswer = (number) => {
 };
 
 const generateData = () => {
-  const number = getRandomNumber(minRange, maxRange);
+  const number = getRandomNumber(minSeries, maxSeries);
   const question = number.toString();
   const correctAnswer = getGoodAnswer(number) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
+
+const gameMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function playPrimeGame() {
   playGame(gameMessage, generateData);

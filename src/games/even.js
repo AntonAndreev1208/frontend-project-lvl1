@@ -2,7 +2,6 @@
 import playGame from '../index.js';
 import { getRandomNumber } from '../getRandomNumber.js';
 
-const gameMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
 const minRange = 0;
 const maxRange = 100;
 
@@ -14,6 +13,8 @@ const generateData = () => {
   const correctAnswer = isEven(number) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
+
+const gameMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 function playEvenGame() {
   playGame(gameMessage, generateData);
