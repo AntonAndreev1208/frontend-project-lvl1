@@ -1,16 +1,17 @@
-### Hexlet tests and linter status:
+# Проект: ""Игры разума":
 [![Actions Status](https://github.com/AntonAndreev1208/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/AntonAndreev1208/frontend-project-lvl1/actions)
 <a href="https://codeclimate.com/github/AntonAndreev1208/frontend-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/5bbcdeb929cefe2d1fce/maintainability" /></a>
-Описание проекта
+
+## Описание проекта
 "Игры разума" : проект, состоящий из 5 логических консольных игр. В каждой из них вам предстоит выполнять несколько несложных арифметических задач. 
 
-Установка
+## Установка
 make install
 make publish
 npm link
 
-Инструкция по запуску:
-1. Запуск игры "Проверка на чётность".  
+## Инструкция по запуску:
+### 1. Запуск игры "Проверка на чётность".  
 
 brain-even
 
@@ -18,7 +19,7 @@ brain-even
 
 [![asciicast](https://asciinema.org/a/ymLbkEPnE6YeaA1xKPjjgfgU3.svg)](https://asciinema.org/a/ymLbkEPnE6YeaA1xKPjjgfgU3)
 
-2. Запуск игры "Калькулятор".
+### 2. Запуск игры "Калькулятор".
 
 brain-calc
 
@@ -26,7 +27,7 @@ brain-calc
 
 [![asciicast](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk.svg)](https://asciinema.org/a/1Hi1iBN9ah4Zi1cZeXJKC17Fk)
 
-3. Запуск игры "Наибольший общий делитель".
+### 3. Запуск игры "Наибольший общий делитель".
 
 brain-gcd
 
@@ -34,7 +35,7 @@ brain-gcd
 
 [![asciicast](https://asciinema.org/a/SP97hAkptl1mkgnR6P7nlfN1m.svg)](https://asciinema.org/a/SP97hAkptl1mkgnR6P7nlfN1m)
 
-4. Запуск игры "Арифметическая прогрессия".
+### 4. Запуск игры "Арифметическая прогрессия".
 
 brain-progression
 
@@ -43,7 +44,7 @@ brain-progression
 [![asciicast](https://asciinema.org/a/b5fP09agw67fumnYb8NW6AXNV.svg)](https://asciinema.org/a/b5fP09agw67fumnYb8NW6AXNV)
 
 
-5. Запуск игры "Простое ли число?".
+### 5. Запуск игры "Простое ли число?".
 
 brain-prime
 

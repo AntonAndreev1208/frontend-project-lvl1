@@ -1,26 +1,23 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
+import { getRandomNumber } from '../getRandomNumber.js';
 
-const randomExpression = (min = 1, max = 100) => Math.floor(Math.random() * (max - min + 1)) + min;
+const gameMessage = 'Find the greatest common divisor of given numbers.';
+const minRange = 0;
+const maxRange = 10;
 
-const correctAnswer = (a, b) => {
-  if (b === 0) {
-    return a;
-  }
-  return correctAnswer(b, a % b);
-};
-
-const gameMessage = 'Find the greatest common divisor of given numbers';
+const isGCD = (x, y) => (y === 0 ? x : isGCD(y, x % y));
 
 const generateData = () => {
-  const a = randomExpression();
-  const b = randomExpression();
-  const answer = correctAnswer(a, b);
-  return [`${a} ${b}`, answer];
+  const number1 = getRandomNumber(minRange, maxRange);
+  const number2 = getRandomNumber(minRange, maxRange);
+  const question = `${number1} ${number2}`;
+  const correctAnswer = isGCD(number1, number2).toString();
+  return [question, correctAnswer];
 };
 
-function play() {
-  playGame(gameMessage, generateData, (answer) => answer);
+function playGcdGame() {
+  playGame(gameMessage, generateData);
 }
 
-export default play;
+export default playGcdGame;

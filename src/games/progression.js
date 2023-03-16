@@ -1,36 +1,37 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
+import { getRandomNumber, getRandomIndex } from '../getRandomNumber.js';
 
-const randomExpression = (length) => {
+const gameMessage = 'What number is missing in the progression?';
+const minLength = 5;
+const maxLength = 10;
+const minRange = 1;
+const maxRange = 100;
+const minStep = 1;
+const maxStep = 10;
+
+const giveProgression = (length, start, step) => {
   const progression = [];
-  const start = Math.floor(Math.random() * 50);
-  const step = Math.floor(Math.random() * 10) + 1;
-
-  for (let i = 0; i < length; i += 1) {
-    progression.push(start + step * i);
+  for (let i = start; progression.length < length; i += step) {
+    progression.push(i);
   }
-
   return progression;
 };
 
-const correctAnswer = (progression) => {
-  const newProgression = [...progression];
-  const index = Math.floor(Math.random() * newProgression.length);
-  const hiddenElement = newProgression[index];
-  newProgression[index] = '..';
-  return [newProgression.join(' '), hiddenElement];
-};
-
-const gameMessage = 'What number is missing in the progression?';
-
 const generateData = () => {
-  const progression = randomExpression(10);
-  const [question, answer] = correctAnswer(progression);
-  return [question, String(answer)];
+  const length = getRandomNumber(minLength, maxLength);
+  const start = getRandomNumber(minRange, maxRange);
+  const step = getRandomNumber(minStep, maxStep);
+  const progression = giveProgression(length, start, step);
+  const indexHiddenNumber = getRandomIndex(progression);
+  const correctAnswer = progression[indexHiddenNumber].toString();
+  progression[indexHiddenNumber] = '..';
+  const question = progression.join(' ');
+  return [question, correctAnswer];
 };
 
-function startGame() {
-  playGame(gameMessage, generateData, (answer) => answer);
+function playProgressionGame() {
+  playGame(gameMessage, generateData);
 }
 
-export default startGame;
+export default playProgressionGame;

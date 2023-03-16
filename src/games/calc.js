@@ -1,39 +1,36 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
+import { getRandomNumber, getRandomIndex } from '../getRandomNumber.js';
 
-const operations = ['+', '-', '*'];
+const gameMessage = 'What is the result of the expression?';
+const operators = ['+', '-', '*'];
+const minRange = 0;
+const maxRange = 50;
 
-const randomExpression = () => {
-  const num1 = Math.floor(Math.random() * 50);
-  const num2 = Math.floor(Math.random() * 50);
-  const operation = operations[Math.floor(Math.random() * operations.length)];
-  return `${num1} ${operation} ${num2}`;
-};
-
-const correctAnswer = (expression) => {
-  const [num1, operation, num2] = expression.split(' ');
-  switch (operation) {
+const getGoodAnswer = (x, y, operator) => {
+  switch (operator) {
     case '+':
-      return Number(num1) + Number(num2);
+      return x + y;
     case '-':
-      return Number(num1) - Number(num2);
+      return x - y;
     case '*':
-      return Number(num1) * Number(num2);
+      return x * y;
     default:
       return null;
   }
 };
 
-const gameMessage = 'What is the result of the expression?';
-
 const generateData = () => {
-  const expression = randomExpression();
-  const answer = correctAnswer(expression);
-  return [expression, answer];
+  const number1 = getRandomNumber(minRange, maxRange);
+  const number2 = getRandomNumber(minRange, maxRange);
+  const operator = operators[getRandomIndex(operators)];
+  const question = `${number1} ${operator} ${number2}`;
+  const correctAnswer = getGoodAnswer(number1, number2, operator).toString();
+  return [question, correctAnswer];
 };
 
-function startGame() {
-  playGame(gameMessage, generateData, (answer) => answer);
+function playCalcGame() {
+  playGame(gameMessage, generateData);
 }
 
-export default startGame;
+export default playCalcGame;

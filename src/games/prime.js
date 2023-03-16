@@ -1,31 +1,33 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
-
-const randomExpression = () => {
-  const question = Math.floor(Math.random() * 100) + 1;
-  return [question];
-};
-
-const correctAnswer = (num) => {
-  if (num < 2) return 'no';
-  for (let i = 2; i <= Math.sqrt(num); i += 1) {
-    if (num % i === 0) {
-      return 'no';
-    }
-  }
-  return 'yes';
-};
+import { getRandomNumber } from '../getRandomNumber.js';
 
 const gameMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const minRange = 0;
+const maxRange = 100;
 
-const generateData = () => {
-  const expression = randomExpression();
-  const answer = correctAnswer(expression);
-  return [expression, answer];
+const getGoodAnswer = (number) => {
+  const limit = Math.sqrt(number);
+  if (number <= 1) {
+    return false;
+  }
+  for (let i = 2; i <= limit; i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 
-function runGame() {
-  playGame(gameMessage, generateData, (answer) => answer);
+const generateData = () => {
+  const number = getRandomNumber(minRange, maxRange);
+  const question = number.toString();
+  const correctAnswer = getGoodAnswer(number) ? 'yes' : 'no';
+  return [question, correctAnswer];
+};
+
+function playPrimeGame() {
+  playGame(gameMessage, generateData);
 }
 
-export default runGame;
+export default playPrimeGame;

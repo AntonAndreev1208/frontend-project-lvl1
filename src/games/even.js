@@ -1,23 +1,22 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
-
-const correctAnswer = (num) => (num % 2 === 0 ? 'yes' : 'no');
-
-const randomExpression = () => {
-  const question = Math.floor(Math.random() * 100);
-  return [question];
-};
+import { getRandomNumber } from '../getRandomNumber.js';
 
 const gameMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
+const minRange = 0;
+const maxRange = 100;
+
+const isEven = (number) => (number % 2 === 0);
 
 const generateData = () => {
-  const expression = randomExpression();
-  const answer = correctAnswer(expression);
-  return [expression, answer];
+  const number = getRandomNumber(minRange, maxRange);
+  const question = number.toString();
+  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  return [question, correctAnswer];
 };
 
 function playEvenGame() {
-  playGame(gameMessage, generateData, (answer) => answer);
+  playGame(gameMessage, generateData);
 }
 
 export default playEvenGame;
