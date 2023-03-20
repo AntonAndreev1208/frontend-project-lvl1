@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
-import { getRandomNumber } from '../getRandomNumber.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const minRange = 0;
 const maxRange = 100;
