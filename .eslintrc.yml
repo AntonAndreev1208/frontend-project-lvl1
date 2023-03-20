@@ -1,16 +1,11 @@
 ---
 
-plugins:
-  # https://github.com/jest-community/-plugin-jest
-  - jest
-
 # https://.org/docs/user-guide/configuring#specifying-environments
 env:
   node: true
 
 extends:
   - 'airbnb-base'
-  - 'plugin:jest/recommended'
 
 parserOptions:
   ecmaVersion: latest

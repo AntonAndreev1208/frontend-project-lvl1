@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 import playGame from '../index.js';
-import { getRandomNumber, getRandomIndex } from '../getRandomNumber.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const operators = ['+', '-', '*'];
 const minSeries = 0;
 const maxSeries = 50;
 
-const getGoodAnswer = (x, y, operator) => {
+const calculate = (x, y, operator) => {
   switch (operator) {
     case '+':
       return x + y;
@@ -15,16 +15,16 @@ const getGoodAnswer = (x, y, operator) => {
     case '*':
       return x * y;
     default:
-      return null;
+      throw new Error('Unknown operator!');
   }
 };
 
 const generateData = () => {
   const number1 = getRandomNumber(minSeries, maxSeries);
   const number2 = getRandomNumber(minSeries, maxSeries);
-  const operator = operators[getRandomIndex(operators)];
+  const operator = operators[getRandomNumber(0, operators.length - 1)];
   const question = `${number1} ${operator} ${number2}`;
-  const correctAnswer = getGoodAnswer(number1, number2, operator).toString();
+  const correctAnswer = calculate(number1, number2, operator).toString();
   return [question, correctAnswer];
 };
 
