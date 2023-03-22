@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
 const playGame = (gameMessage, generateData) => {
@@ -9,11 +8,11 @@ const playGame = (gameMessage, generateData) => {
   console.log(gameMessage);
 
   for (let i = 1; i <= roundsCount; i += 1) {
-    const [question, CorrectAnswer] = generateData();
+    const [question, correctAnswer] = generateData();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer !== CorrectAnswer) {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${CorrectAnswer}".`);
+    if (userAnswer !== correctAnswer) {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
       console.log(`Let's try again, ${playerName}!`);
       return;
     }

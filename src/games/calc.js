@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import playGame from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
 
@@ -15,7 +14,7 @@ const calculate = (x, y, operator) => {
     case '*':
       return x * y;
     default:
-      throw new Error('Unknown operator!');
+      throw new Error(`Unknown operator "${operator}"!`);
   }
 };
 
